@@ -173,19 +173,16 @@ public class BSTree
      */
    public boolean myEquals(BSTree that)
    {
-      if (that == null) {
+      if (that == null){
          return false;
       }
-
-      if (this.root == null && that.root == null) {
+      if (root == null && that.root == null){
          return true;
       }
-
-      if (this.root == null || that.root == null) {
+      if (root == null || that.root == null){
          return false;
       }
-
-      return this.root.myEquals(that.root);
+      return root.myEquals(that.root);
    
    }
 

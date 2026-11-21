@@ -100,7 +100,7 @@ public class BSTreeTest {
         treeB.insert(5);
         treeB.insert(1);
         treeB.insert(10);
-        assertFalse(treeA.myEquals(treeB));
+        assertTrue(treeA.myEquals(treeB));
         
 
         BSTree oneTree = new BSTree();

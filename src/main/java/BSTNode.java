@@ -168,19 +168,31 @@ public class BSTNode<T extends Comparable<T>>
     */
    public boolean myEquals(BSTNode<T> that)
    {
-      if (that == null) {return false;}
 
-      if (!(val.equals(that.val))) {
+      if (that == null){
+         return false;
+      }
+      if (!val.equals(that.val)){
+         return false;
+      }
+      if (left == null && that.left != null){
+         return false;
+      }
+      if (left != null && !left.myEquals(that.left)){
+         return false;
+      }
+      if (right == null && that.right != null){
+         return false;
+      }
+      if (right != null && !right.myEquals(that.right)){
          return false;
       }
 
-      boolean leftEquals = (left == null && that.left == null) || (left != null && left.myEquals(that.left));
-      boolean rightEquals = (right == null && that.right == null) || (right != null && right.myEquals(that.right));
-
-      return leftEquals && rightEquals;
+      return true;
+}
    
 
-   }
+   
 
    public BSTNode getRight(){
       return right;
