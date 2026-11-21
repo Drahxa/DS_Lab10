@@ -194,18 +194,18 @@ public class BSTNode<T extends Comparable<T>>
 
    
 
-   public BSTNode getRight(){
+   public BSTNode<T> getRight(){
       return right;
    }
-   public void setRight(BSTNode n){
+   public void setRight(BSTNode<T> n){
       right = n;
    }
 
 
-   public BSTNode getLeft(){
+   public BSTNode<T> getLeft(){
       return left;
    }
-   public void setLeft(BSTNode n){
+   public void setLeft(BSTNode<T> n){
       left = n;
    }
 
