@@ -11,8 +11,7 @@ public class BSTree
 
    public BSTree()
    {
-   
-       
+      root = null;    
    }
 
     /**
@@ -20,7 +19,7 @@ public class BSTree
      */
    public boolean isEmpty()
    {
-      return root==null;
+      return root == null;
    }
 
 
@@ -29,8 +28,14 @@ public class BSTree
      */
    public void insert(Integer target)
    {
-   }
+      if(root == null){
+         root = new BSTNode<>(target);
+         return;
+      }
+      
+      root.insert(target);
 
+   }
 
     /**
        returns the Integer if it is present in the tree
@@ -38,7 +43,9 @@ public class BSTree
      */
    public Integer retrieve(Integer target)
    {
-	return null;
+      if(root == null){return null;}
+
+      return root.retrieve(target);
    }
 
 
@@ -52,9 +59,12 @@ public class BSTree
      */
    public int retrieveDepth(Integer target)
    {
-	return 0;
-       
+      if(root == null){return 0;}
+
+      return root.retrieveDepth(target);
    }
+
+   
 
     
     /**
@@ -95,8 +105,10 @@ public class BSTree
     */
    public Integer largest()
    {
-	return null;
-   
+      if (root == null) {
+         return null;
+      }
+      return root.getLargest();
    }
 
 
@@ -119,7 +131,7 @@ public class BSTree
             {
                public void accept(Integer i)
                {
-               //need to add some code here...
+                  L.add(i);
                }
             });
       }
@@ -136,7 +148,15 @@ public class BSTree
      */
    public int sum()
    {
-	return 0;
+      return sumFunc(root);
+
+   }
+
+   private int sumFunc(BSTNode<Integer> node){
+      if (node == null) {
+         return 0;
+      }
+      return node.getVal() + sumFunc(node.getLeft()) + sumFunc(node.getRight());
    }
 
 
@@ -153,9 +173,23 @@ public class BSTree
      */
    public boolean myEquals(BSTree that)
    {
-	return false;
+      if (that == null) {
+         return false;
+      }
+
+      if (this.root == null && that.root == null) {
+         return true;
+      }
+
+      if (this.root == null || that.root == null) {
+         return false;
+      }
+
+      return this.root.myEquals(that.root);
    
    }
+
+   
 
 
 
