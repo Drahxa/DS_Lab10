@@ -97,8 +97,8 @@ public class BSTreeTest {
         treeA.insert(10);
 
         BSTree treeB = new BSTree();
-        treeB.insert(1);
         treeB.insert(5);
+        treeB.insert(1);
         treeB.insert(10);
         assertFalse(treeA.myEquals(treeB));
         
